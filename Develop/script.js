@@ -1,5 +1,6 @@
 var rightNow = moment().format("MMMM Do, YYYY");
 var currentDate = document.getElementById('currentDay');
+var saveBtn = $('.saveBtn');
 
 function getDate() {
 
@@ -32,6 +33,15 @@ function colorCoding() {
         }
     })
 };
+
+saveBtn.on("click", function() {
+
+    var time = $(this).siblings(".blockTime").text();
+    var blockText = $(this).siblings(".textEntry").val();
+
+    localStorage.setItem(time, blockText);
+
+});
 
 getDate();
 colorCoding();
